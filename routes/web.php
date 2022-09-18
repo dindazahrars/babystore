@@ -19,7 +19,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('user','UserController');
-Route::resource('product','ProductController');
+Route::resource('barang','BarangController');
 Route::resource('order','OrderController');
 Route::resource('transaksi','TransaksiController');
-Route::resource('laporan','LaporanController');

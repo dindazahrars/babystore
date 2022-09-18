@@ -4,16 +4,15 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Product extends Model
+class Barang extends Model
 {
-    protected $table = "product";
+    protected $table = "barang";
     protected $primarykey = "id";
     protected $fillable = [
         'nama','foto','brand','desc','stock','harga'
     ];
-
     public function order()
     {
-        return $this->hasMany('App\Order','id');
+        return $this->belongsTo('App\Order','id');
     }
 }

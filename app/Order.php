@@ -12,12 +12,8 @@ class Order extends Model
         'id','total','harga',
     ];
 
-    public function product()
+    public function barang()
     {
-        return $this->belongsTo('App\Product','id');
-    }
-    public function transaksi()
-    {
-        return $this->hasMany('App\Transaksi','idorder');
+        return $this->belongsTo('App\barang','id');
     }
 }

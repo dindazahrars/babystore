@@ -46,7 +46,7 @@
                         </a>
                     </li>
                     <li class=" ">
-                        <a href="{{route('product.index')}}" class="waves-effect waves-dark">
+                        <a href="{{route('barang.index')}}" class="waves-effect waves-dark">
                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                             <span class="pcoded-mtext">Product</span>
                             <span class="pcoded-mcaret"></span>
@@ -72,7 +72,7 @@
         <div class="pcoded-navigation-label">Laporan</div>
         <ul class="pcoded-item pcoded-left-item">
             <li class="">
-                <a href="{{route('laporan.index')}}" class="waves-effect waves-dark">
+                <a href="" class="waves-effect waves-dark">
                     <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
                     <span class="pcoded-mtext">Laporan</span>
                     <span class="pcoded-mcaret"></span>

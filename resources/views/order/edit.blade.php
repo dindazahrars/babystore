@@ -26,10 +26,10 @@ Order
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Name Product</label>
                 <div class="col-sm-10">
-                    <select name="id" class="form-control" >
+                    <select name="idbarang" class="form-control" >
                         <option value="">Choose Product</option>
-                        @foreach ($product as $row)
-                        <option value="{{$row->id}}">{{$row->nama}}</option>
+                        @foreach ($barang)
+                        <option value="{{$row->idbarang}}">{{$row->nama}}</option>
                         @endforeach
                     </select>
                 </div>

@@ -20,7 +20,7 @@ class CreateOrderTable extends Migration
             $table->string('harga');
             $table->timestamps();
 
-            $table->foreign('id')->references('id')->on('product')->onDelete('cascade');
+            $table->foreign('id')->references('id')->on('barang')->onDelete('cascade');
         });
     }
 

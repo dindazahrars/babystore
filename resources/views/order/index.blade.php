@@ -34,7 +34,7 @@ Order
                                                         <tbody>
                                                             @foreach($order as $row)
                                                             <td>{{ $loop->iteration + ($order->perpage() *  ($order->currentPage() -1)) }}</td>
-                        <td>{{ optional($row->product)->nama}}</td>
+                        <td>{{ $row->barang->nama}}</td>
                         <td>{{ $row->total }}</td>
                         <td>{{ $row->harga}}</td>
                         <td>

@@ -4,28 +4,28 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
-use App\Product;
+use App\Barang;
 use Illuminate\Support\Facades\Storage;
 use Validator;
 use Storange;
 
-class ProductController extends Controller
+class BarangController extends Controller
 {
     public function index(Request $request)
     {
-        $product = Product::paginate(3);
+        $barang = Barang::paginate(3);
         $filterKeyword = $request->get('keyword');
         if ($filterKeyword)
         {
-            $product = Product::where('name','LIKE',"%$filterKeyword%")->paginate(1);
+            $barang = Barang::where('name','LIKE',"%$filterKeyword%")->paginate(1);
         }
-        return view('product.index', compact('product'));
+        return view('barang.index', compact('barang'));
     }//end method
 
     public function create()
     {
 
-        return view('product.create');
+        return view('barang.create');
     }//end method
 
     public function store(Request $request)
@@ -43,7 +43,7 @@ class ProductController extends Controller
 
         if($validasi->fails())
         {
-            return redirect()->route('product.create')->withInput()->withErrors($validasi);
+            return redirect()->route('barang.create')->withInput()->withErrors($validasi);
         }
         $foto = $request->file('foto');
         $extention = $foto->getClientOriginalExtension();
@@ -53,32 +53,32 @@ class ProductController extends Controller
              $request->file('foto')->move($upload_path,$namafoto );
              $data['foto'] = $namafoto;
 
-        Product::create($data);
+        Barang::create($data);
 
-        return redirect()->route('product.index');
+        return redirect()->route('barang.index');
             }
     }//end method
 
     public function destroy($id)
     {
-        $data = Product::findOrFail($id);
+        $data = Barang::findOrFail($id);
         $data->delete();
-        return redirect()->route('product.index');
+        return redirect()->route('barang.index');
     }//end method
 
 
     public function show($id)
     {
-        $product = Product::findOrFail($id);
-        return view('product.show',compact('product'));
+        $barang = Barang::findOrFail($id);
+        return view('barang.show',compact('barang'));
     }//end method
 
 
     public function edit($id)
     {
 
-        $product = Product::findOrFail($id);
-        return view('product.edit',compact('product'));
+        $barang = Barang::findOrFail($id);
+        return view('barang.edit',compact('barang'));
     }
 
     /**
@@ -90,7 +90,7 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $product = Product::findOrFail($id);
+        $barang = Barang::findOrFail($id);
         $data = $request->all();
         $validasi = Validator::make($data,[
             'nama'=>'required|max:255',
@@ -102,14 +102,14 @@ class ProductController extends Controller
         ]);
         if($validasi->fails())
         {
-            return redirect()->route('product.edit',[$id])->withErrors($validasi);
+            return redirect()->route('barang.edit',[$id])->withErrors($validasi);
         }
 
 if($request->hasFile('foto')) {
     if($request->file('foto')->isValid())
     {
 
-        Storage::disk('upload')->delete($product->id);
+        Storage::disk('upload')->delete($barang->id);
         $foto = $request->file('foto');
         $extention = $foto->getClientOriginalExtension();
         $namafoto = "foto/".date('YmdHis').".".$extention;
@@ -119,9 +119,9 @@ if($request->hasFile('foto')) {
        }
     }
 
-        $product->update($data);
+        $barang->update($data);
         // alert()->success('Berhasil di edit','success');
-        return redirect()->route('product.index');
+        return redirect()->route('barang.index');
 
 
 

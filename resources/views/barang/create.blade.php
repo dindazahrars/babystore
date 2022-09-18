@@ -10,7 +10,7 @@ Product
     </div>
     <div class="card-block">
         <h4 class="sub-title">Basic Inputs</h4>
-        <form class="custom-validation" method="POST" action="{{ route('product.store') }}" enctype="multipart/form-data" novalidate="">
+        <form class="custom-validation" method="POST" action="{{ route('barang.store') }}" enctype="multipart/form-data" novalidate="">
             @csrf
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Nama</label>

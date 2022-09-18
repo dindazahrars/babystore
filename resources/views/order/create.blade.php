@@ -27,7 +27,7 @@ Order
                 <div class="col-sm-10">
                     <select name="id" class="form-control">
                         <option value="">Choose Product</option>
-                        @foreach ($product as $row)
+                        @foreach ($barang as $row)
                         <option value="{{$row->id}}">{{$row->nama}}</option>
                         @endforeach
                     </select>

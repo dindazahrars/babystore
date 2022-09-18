@@ -20,8 +20,4 @@ class Transaksi extends Model
     {
         return $this->belongsTo('App\Order','idorder');
     }
-    public function transaksi()
-    {
-        return $this->hasMany('App\Laporan','idt');
-    }
 }

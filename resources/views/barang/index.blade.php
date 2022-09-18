@@ -13,7 +13,7 @@ Product
                                                 </div>
                                             </div>
                                             <div class="ml-3">
-                                                <a class="btn btn-info waves-effect waves-light" href="{{ route('product.create')}}" role="button"> Create (+)</a>
+                                                <a class="btn btn-info waves-effect waves-light" href="{{ route('barang.create')}}" role="button"> Create (+)</a>
                                                 </p>
                                                 </div>
 
@@ -35,8 +35,8 @@ Product
                                                         </thead>
 
                                                         <tbody>
-                                                            @foreach($product as $row)
-                                                            <td>{{ $loop->iteration + ($product->perpage() *  ($product->currentPage() -1)) }}</td>
+                                                            @foreach($barang as $row)
+                                                            <td>{{ $loop->iteration + ($barang->perpage() *  ($barang->currentPage() -1)) }}</td>
                         <td>{{ $row->nama }}</td>
                         <td><img class="img-thumbnail" src="{{asset('uploads/'.$row->foto)}}"/></td>
                         <td>{{ $row->brand }}</td>
@@ -44,18 +44,18 @@ Product
                         <td>{{ $row->stock }}</td>
                         <td>{{ $row->harga }}</td>
                         <td>
-                            <form method="post" action="{{ route('product.destroy',[$row->id]) }}" onsubmit="return confirm('Are you sure to delete, {{$row->name}}?')">
+                            <form method="post" action="{{ route('barang.destroy',[$row->id]) }}" onsubmit="return confirm('Are you sure to delete, {{$row->name}}?')">
                                 @csrf
                             {{ method_field('DELETE') }}
 
 
 
-                            <a class="ti-pencil" href="{{ route('product.edit',[$row->id]) }}" title="Edit">
+                            <a class="ti-pencil" href="{{ route('barang.edit',[$row->id]) }}" title="Edit">
 
                              </a>
 
 
-                            <a class="ti-eye" href="{{ route('product.show',[$row->id]) }}" title="Lihat">
+                            <a class="ti-eye" href="{{ route('barang.show',[$row->id]) }}" title="Lihat">
 
                              </a>
                              <button type="submit" href="{{ route('logout') }}" class="btn btn-outline-secondary btn-sm edit">
@@ -68,7 +68,7 @@ Product
                     </tr>
                     @endforeach
                                                         </tbody>
-                                                        {{ $product->appends(Request::all())->links() }}
+                                                        {{ $barang->appends(Request::all())->links() }}
                                                     </table>
                                                 </div>
                                             </div>

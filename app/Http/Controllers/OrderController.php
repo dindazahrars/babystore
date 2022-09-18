@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 Use App\Order;
-Use App\Product;
+Use App\Barang;
 use Validator;
 
 class OrderController extends Controller
@@ -17,7 +17,7 @@ class OrderController extends Controller
 
     public function index(Request $request)
     {
-        $order = Order::with('product')->latest()->paginate(3);
+        $order = Order::with('barang')->latest()->paginate(3);
         $filterKeyword = $request->get('keyword');
         if ($filterKeyword)
         {
@@ -28,8 +28,8 @@ class OrderController extends Controller
 
     public function create()
     {
-        $product = Product::all();
-        return view('order.create', compact('product'));
+        $barang = Barang::all();
+        return view('order.create', compact('barang'));
     }//end method
 
     public function store(Request $request)
