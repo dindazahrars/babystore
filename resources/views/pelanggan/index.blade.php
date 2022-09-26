@@ -1,6 +1,6 @@
 @extends('layouts.template')
 @section('title')
-Product
+Pelanggan
 @endsection
 
 <!-- ini untuk isi home -->
@@ -8,12 +8,12 @@ Product
 <div class="card">
 
                                             <div class="card-header">
-                                                <h5>Product Table</h5>
+                                                <h5>Pelanggan Table</h5>
                                                 <div class="card-header-right">
                                                 </div>
                                             </div>
                                             <div class="ml-3">
-                                                <a class="btn btn-info waves-effect waves-light" href="{{ route('barang.create')}}" role="button"> Create (+)</a>
+                                                <a class="btn btn-info waves-effect waves-light" href="{{ route('user.create')}}" role="button"> Create (+)</a>
                                                 </p>
                                                 </div>
 
@@ -25,26 +25,20 @@ Product
                                                             <tr>
                                                                 <th>Id</th>
                                                                 <th>Name</th>
-                                                                <th width="10%">Images</th>
-                                                                <th>Brand</th>
-                                                                <th>Desc</th>
-                                                                <th>Stock</th>
-                                                                <th>Price</th>
+                                                                <th>Email</th>
+                                                                <th>Level</th>
                                                                 <th>Edit</th>
                                                             </tr>
                                                         </thead>
 
                                                         <tbody>
-                                                            @foreach($barang as $row)
-                                                            <td>{{ $loop->iteration + ($barang->perpage() *  ($barang->currentPage() -1)) }}</td>
-                        <td>{{ $row->nama }}</td>
-                        <td><img class="img-thumbnail" src="{{asset('uploads/'.$row->foto)}}"/></td>
-                        <td>{{ $row->brand }}</td>
-                        <td>{{ $row->desc }}</td>
-                        <td>{{ $row->stock }}</td>
-                        <td>{{ $row->harga }}</td>
+                                                            @foreach($datas as $row)
+                                                            <td>{{ $loop->iteration + ($user->perpage() *  ($user->currentPage() -1)) }}</td>
+                        <td>{{ $row->name }}</td>
+                        <td>{{ $row->email }}</td>
+                        <td>{{ $row->level }}</td>
                         <td>
-                            <form method="post" action="{{ route('barang.destroy',[$row->id]) }}" onsubmit="return confirm('Are you sure to delete, {{$row->nama}}?')">
+                            <form method="post" action="{{ route('user.destroy',[$row->id]) }}" onsubmit="return confirm('Are you sure to delete, {{$row->name}}?')">
                                 @csrf
                             {{ method_field('DELETE') }}
                             <button type="submit" href="{{ route('logout') }}" class="btn btn-outline-secondary btn-sm edit">
@@ -52,12 +46,12 @@ Product
                             </button>
 
 
-                            <a class="btn btn-outline-secondary btn-sm edit" href="{{ route('barang.edit',[$row->id]) }}" title="Edit">
+                            <a class="btn btn-outline-secondary btn-sm edit" href="{{ route('user.edit',[$row->id]) }}" title="Edit">
                              <i class="bi bi-pencil-fill"></i>
                              </a>
 
 
-                            <a class="btn btn-outline-secondary btn-sm edit" href="{{ route('barang.show',[$row->id]) }}" title="Lihat">
+                            <a class="btn btn-outline-secondary btn-sm edit" href="{{ route('user.show',[$row->id]) }}" title="Lihat">
                             <i class="bi bi-eye-fill"></i>
                             </a>
                         </td>
@@ -67,7 +61,7 @@ Product
                     </tr>
                     @endforeach
                                                         </tbody>
-                                                        {{ $barang->appends(Request::all())->links() }}
+                                                        {{ $user->appends(Request::all())->links() }}
                                                     </table>
                                                 </div>
                                             </div>

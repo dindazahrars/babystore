@@ -41,10 +41,17 @@
                     <li class=" ">
                         <a href="{{route('user.index')}}" class="waves-effect waves-dark">
                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                            <span class="pcoded-mtext">Admin & Pelanggan</span>
+                            <span class="pcoded-mtext">Admin</span>
                             <span class="pcoded-mcaret"></span>
                         </a>
                     </li>
+                        <li class=" ">
+                            <a href="{{route('pelanggan.index')}}" class="waves-effect waves-dark">
+                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                <span class="pcoded-mtext">Pelanggan</span>
+                                <span class="pcoded-mcaret"></span>
+                            </a>
+                        </li>
                     <li class=" ">
                         <a href="{{route('barang.index')}}" class="waves-effect waves-dark">
                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
@@ -72,7 +79,7 @@
         <div class="pcoded-navigation-label">Laporan</div>
         <ul class="pcoded-item pcoded-left-item">
             <li class="">
-                <a href="" class="waves-effect waves-dark">
+                <a href="/laporan" class="waves-effect waves-dark">
                     <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
                     <span class="pcoded-mtext">Laporan</span>
                     <span class="pcoded-mcaret"></span>

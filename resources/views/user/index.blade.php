@@ -32,7 +32,7 @@ Admin & Pelanggan
                                                         </thead>
 
                                                         <tbody>
-                                                            @foreach($user as $row)
+                                                            @foreach($datas as $row)
                                                             <td>{{ $loop->iteration + ($user->perpage() *  ($user->currentPage() -1)) }}</td>
                         <td>{{ $row->name }}</td>
                         <td>{{ $row->email }}</td>
@@ -41,20 +41,19 @@ Admin & Pelanggan
                             <form method="post" action="{{ route('user.destroy',[$row->id]) }}" onsubmit="return confirm('Are you sure to delete, {{$row->name}}?')">
                                 @csrf
                             {{ method_field('DELETE') }}
-
-
-
-                            <a class="ti-pencil" href="{{ route('user.edit',[$row->id]) }}" title="Edit">
-
-                             </a>
-
-
-                            <a class="ti-eye" href="{{ route('user.show',[$row->id]) }}" title="Lihat">
-
-                             </a>
-                             <button type="submit" href="{{ route('logout') }}" class="btn btn-outline-secondary btn-sm edit">
-                                <i class="fa fa-trash close-card"></i>
+                            <button type="submit" href="{{ route('logout') }}" class="btn btn-outline-secondary btn-sm edit">
+                                <i class="bi bi-trash3-fill"></i>
                             </button>
+
+
+                            <a class="btn btn-outline-secondary btn-sm edit" href="{{ route('user.edit',[$row->id]) }}" title="Edit">
+                             <i class="bi bi-pencil-fill"></i>
+                             </a>
+
+
+                            <a class="btn btn-outline-secondary btn-sm edit" href="{{ route('user.show',[$row->id]) }}" title="Lihat">
+                            <i class="bi bi-eye-fill"></i>
+                            </a>
                         </td>
                     </tr>
                 </form>

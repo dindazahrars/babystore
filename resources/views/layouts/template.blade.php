@@ -11,6 +11,9 @@
     <meta name="keywords" content="bootstrap, bootstrap admin template, admin theme, admin dashboard, dashboard template, admin template, responsive" />
     <meta name="author" content="Codedthemes" />
     <!-- Favicon icon -->
+    {{-- CDN bootsrap icon --}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+
     <link rel="icon" href="{{asset('bck/assets/images/favicon.ico')}}" type="image/x-icon">
     <!-- Google font-->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
@@ -33,6 +36,7 @@
 
 <body>
     <!-- Pre-loader start -->
+    @include('sweetalert::alert')
     <div class="theme-loader">
         <div class="loader-track">
             <div class="preloader-wrapper">

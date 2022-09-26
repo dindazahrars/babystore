@@ -12,6 +12,15 @@ Product
         <h4 class="sub-title">Basic Inputs</h4>
         <form class="custom-validation" method="POST" action="{{ route('barang.store') }}" enctype="multipart/form-data" novalidate="">
             @csrf
+            @if ($errors->any())
+            <div class="alert alert-danger">
+             <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+             </ul>
+            </div>
+            @endif
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Nama</label>
                 <div class="col-sm-10">

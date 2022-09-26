@@ -13,8 +13,7 @@ Transaksi
                                                 </div>
                                             </div>
                                             <div class="ml-3">
-                                                <a class="btn btn-info waves-effect waves-light" href="{{ route('transaksi.create')}}" role="button"> Create (+)</a>
-                                                </p>
+                                                <a class="btn btn-info waves-effect waves-light" href="{{route('transaksi.create')}}" role="button"> Create (+)</a>
                                                 </div>
 
                                             <div class="card-block table-btransaksi-style">
@@ -36,14 +35,11 @@ Transaksi
                                                         <tbody>
                                                             @foreach($transaksi as $row)
                                                             <td>{{ $loop->iteration + ($transaksi->perpage() *  ($transaksi->currentPage() -1)) }}</td>
-                        <td>{{ optional($row->user)->name}}</td>
-                        <td>{{ optional($row->order)->harga}}</td>
+                                                            <td>{{ optional($row->user)->name}}</td>
+                                                            <td>{{ optional($row->order)->harga}}</td>
                         <td>{{ $row->status }}</td>
                         <td>{{ $row->metode}}</td>
                         <td>
-                            <a class="ti-eye" href="{{ route('transaksi.show',[$row->idt]) }}" title="Lihat">
-
-                            </a>
                     </tr>
                         </td>
                     </tr>

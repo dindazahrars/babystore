@@ -41,19 +41,15 @@ Order
                             <form method="post" action="{{ route('order.destroy',[$row->idorder]) }}" onsubmit="return confirm('Are you sure to delete, {{$row->name}}?')">
                                 @csrf
                             {{ method_field('DELETE') }}
+                            <button type="submit" href="{{ route('logout') }}" class="btn btn-outline-secondary btn-sm edit">
+                                <i class="bi bi-trash3-fill"></i>
+                            </button>
 
 
-
-                            <a class="ti-pencil" href="{{ route('order.edit',[$row->idorder]) }}" title="Edit">
-
+                            <a class="btn btn-outline-secondary btn-sm edit" href="{{ route('order.edit',[$row->idorder]) }}" title="Edit">
+                             <i class="bi bi-pencil-fill"></i>
                              </a>
 
-
-                            <a class="ti-eye" href="{{ route('order.show',[$row->idorder]) }}" title="Lihat">
-
-                             </a>
-                             <button type="submit" href="{{ route('logout') }}" class="btn btn-outline-secondary btn-sm edit">
-                                <i class="fa fa-trash close-card"></i>
                             </button>
                         </td>
                     </tr>

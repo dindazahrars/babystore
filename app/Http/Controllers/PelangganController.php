@@ -9,7 +9,7 @@ Use App\User;
 use Validator;
 use Illuminate\Support\Facades\DB;
 
-class UserController extends Controller
+class PelangganController extends Controller
 {
     public function _contruct()
     {
@@ -19,7 +19,7 @@ class UserController extends Controller
     public function index(Request $request)
     {
         $datas = DB::table('users')
-            ->where('level', '=', 'admin')
+            ->where('level', '=', 'pelanggan')
             ->get();
         $user = User::paginate(3);
         $filterKeyword = $request->get('keyword');

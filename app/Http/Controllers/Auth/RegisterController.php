@@ -7,6 +7,7 @@ use App\Providers\RouteServiceProvider;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
+use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
@@ -71,5 +72,6 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'level' => $data['level'],
         ]);
+        alert()->success('success to register','success');
     }
 }

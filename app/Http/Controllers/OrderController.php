@@ -68,8 +68,9 @@ class OrderController extends Controller
 
     public function edit($idorder)
     {
+        $barang = Barang::all();
         $order = Order::findOrFail($idorder);
-        return view('order.edit',compact('order'));
+        return view('order.edit',compact('order','barang'));
     }
 
     /**

@@ -10,9 +10,8 @@ Order
     </div>
     <div class="card-block">
         <h4 class="sub-title">Basic Inputs</h4>
-        <form class="custom-validation" method="POST" action="{{ route('order.update',[$order->idorder]) }}"  novalidate="">
+        <form class="custom-validation" method="POST" action="{{ route('laporan.store') }}"  novalidate="">
             @csrf
-            {{ method_field('PUT') }}
             @if ($errors->any())
             <div class="alert alert-danger">
              <ul>
@@ -22,29 +21,37 @@ Order
              </ul>
             </div>
             @endif
+
             <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Name Product</label>
+                <label class="col-sm-2 col-form-label">User Name</label>
                 <div class="col-sm-10">
                     <select name="id" class="form-control">
-                        <option value="{{$order->id}}">Choose Product</option>
-                        @foreach ($barang as $row)
-                        <option value="{{$row->id}}">{{$row->nama}}</option>
+                        <option value="">Choose Name</option>
+                        @foreach ($user as $row)
+                        <option value="{{$row->id}}">{{$row->name}}</option>
                         @endforeach
                     </select>
                 </div>
             </div>
+
             <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Total</label>
+                <label class="col-sm-2 col-form-label">Status</label>
                 <div class="col-sm-10">
-                    <input type="text" name="total" class="form-control" required="" placeholder="Silahkan input nama" value="{{ $order->total}}">
+                    <select name="idt" class="form-control">
+                        <option value="">Choose Status</option>
+                        @foreach ($transaksi as $row)
+                        <option value="{{$row->idt}}">{{$row->idt}}</option>
+                        @endforeach
+                    </select>
                 </div>
             </div>
-                        <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">Price</label>
-                            <div class="col-sm-10">
-                                <input type="text" name="harga" class="form-control" required="" placeholder="Silahkan input nama" value="{{ $order->harga}}">
-                            </div>
-                        </div>
+
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Tanggal</label>
+                <div class="col-sm-10">
+                    <input type="date" name="tgl" class="form-control" required="" placeholder="Silahkan input nama">
+                </div>
+            </div>
             <div class="mb-0">
                 <div>
                     <button type="submit" class="btn btn-primary waves-effect waves-light me-1">
