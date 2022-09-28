@@ -46,7 +46,7 @@ Dashboard
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Password</label>
                 <div class="col-sm-10">
-                    <input type="password"  name="password" class="form-control" required="">
+                    <input type="password"  name="password" class="form-control" required="" placeholder="Silahkan masukkan password">
                 </div>
             </div>
             <div class="mb-0">

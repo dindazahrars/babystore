@@ -7,6 +7,7 @@ use Illuminate\Support\Arr;
 Use App\Order;
 Use App\Barang;
 use Validator;
+use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
 {
@@ -17,6 +18,7 @@ class OrderController extends Controller
 
     public function index(Request $request)
     {
+
         $order = Order::with('barang')->latest()->paginate(3);
         $filterKeyword = $request->get('keyword');
         if ($filterKeyword)
@@ -37,18 +39,18 @@ class OrderController extends Controller
         $data = $request->all();
         $validasi = Validator::make($data,[
             'id'=>'required',
-            'total'=>'required|max:255',
-            'harga'=>'required|max:20',
+            'harga'=>'required|max:255',
 
         ]);
         if($validasi->fails())
         {
             return redirect()->route('order.create')->withInput()->withErrors($validasi);
+            alert()->error('Error','Errors to add');
         }
 
         Order::create($data);
-        //toast('berhasil di tambah', 'success');
-        return redirect()->route('order.index');
+        toast('berhasil di tambah', 'success');
+        return redirect()->route('transaksi.create');
     }//end method
 
     public function destroy($idorder)
@@ -86,15 +88,16 @@ class OrderController extends Controller
     $data = $request->all();
     $validasi = Validator::make($data,[
         'id'=>'required',
-        'total'=>'required|max:255',
-        'harga'=>'required|max:20',
+        'harga'=>'required|max:255',
         ]);
         if($validasi->fails())
         {
             return redirect()->route('order.create',[$idorder])->withErrors($validasi);
+            alert()->error('Error','Errors to edit');
         }
 
           $order->update($data);
+          alert()->success('success to edit','success');
           return redirect()->route('order.index');
        }
 }

@@ -27,55 +27,28 @@ class PelangganController extends Controller
         {
             $user = User::where('name','LIKE',"%$filterKeyword%")->paginate(1);
         }
-        return view('user.index', compact('user', 'datas'));
-    }//end method
-
-    public function create()
-    {
-
-        return view('user.create');
-    }//end method
-
-    public function store(Request $request)
-    {
-        $data = $request->all();
-        $validasi = Validator::make($data,[
-            'name'=>'required|max:255',
-            'email'=>'required|email|max:255|unique:users',
-            'level'=>'required|max:255',
-            'password'=>'required|min:8',
-
-        ]);
-        if($validasi->fails())
-        {
-            return redirect()->route('user.create')->withInput()->withErrors($validasi);
-        }
-
-        $data['password'] = bcrypt($data['password']);
-        User::create($data);
-        alert()->success('success to add','success');
-        return redirect()->route('user.index');
+        return view('pelanggan.index', compact('user', 'datas'));
     }//end method
 
     public function destroy($id)
     {
         $data = User::findOrFail($id);
         $data->delete();
-        return redirect()->route('user.index');
+        return redirect()->route('pelanggan.index');
     }//end method
 
 
     public function show($id)
     {
         $user = User::findOrFail($id);
-        return view('user.show',compact('user'));
+        return view('pelanggan.show',compact('user'));
     }//end method
 
 
     public function edit($id)
     {
         $user = User::findOrFail($id);
-        return view('user.edit',compact('user'));
+        return view('pelanggan.edit',compact('user'));
     }
 
     /**
@@ -97,7 +70,8 @@ class PelangganController extends Controller
         ]);
         if($validasi->fails())
         {
-            return redirect()->route('user.create',[$id])->withErrors($validasi);
+            alert()->error('Error','Errors to edit');
+            return redirect()->route('pelanggan.create',[$id])->withErrors($validasi);
         }
         if($request->input('password'))
         {
@@ -109,7 +83,7 @@ class PelangganController extends Controller
          }
           $user->update($data);
              alert()->success('success to edit','success');
-          return redirect()->route('user.index');
+          return redirect()->route('pelanggan.index');
        }
 }
 

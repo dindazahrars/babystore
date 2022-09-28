@@ -40,25 +40,25 @@ Product
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Brand</label>
                 <div class="col-sm-10">
-                    <input type="text" name="brand" class="form-control" required="" placeholder="Silahkan input nama" value="{{ $product->brand }}">
+                    <input type="text" name="brand" class="form-control" required="" placeholder="Silahkan input branf" value="{{ $product->brand }}">
                 </div>
             </div>
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Desc</label>
                     <div class="col-sm-10">
-                        <input type="text" name="desc" class="form-control" required="" placeholder="Silahkan input nama" value="{{ $product->desc}}">
+                        <input type="text" name="desc" class="form-control" required="" placeholder="Silahkan input desc" value="{{ $product->desc}}">
                     </div>
                 </div>
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Stock</label>
                         <div class="col-sm-10">
-                            <input type="text" name="stock" class="form-control" required="" placeholder="Silahkan input nama" value="{{ $product->stock }}">
+                            <input type="text" name="stock" class="form-control" required="" placeholder="Silahkan input stock" value="{{ $product->stock }}">
                         </div>
                     </div>
                         <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">Price</label>
+                            <label class="col-sm-2 col-form-label">Harga</label>
                             <div class="col-sm-10">
-                                <input type="text" name="harga" class="form-control" required="" placeholder="Silahkan input nama" value="{{ $product->harga }}">
+                                <input type="text" name="harga" class="form-control" required="" placeholder="Silahkan input Harga" value="{{ $product->harga }}">
                             </div>
                         </div>
             <div class="mb-0">

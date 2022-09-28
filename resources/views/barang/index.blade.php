@@ -29,7 +29,7 @@ Product
                                                                 <th>Brand</th>
                                                                 <th>Desc</th>
                                                                 <th>Stock</th>
-                                                                <th>Price</th>
+                                                                <th>Harga</th>
                                                                 <th>Edit</th>
                                                             </tr>
                                                         </thead>
@@ -42,7 +42,7 @@ Product
                         <td>{{ $row->brand }}</td>
                         <td>{{ $row->desc }}</td>
                         <td>{{ $row->stock }}</td>
-                        <td>{{ $row->harga }}</td>
+                        <td> @currency($row->harga)</td>
                         <td>
                             <form method="post" action="{{ route('barang.destroy',[$row->id]) }}" onsubmit="return confirm('Are you sure to delete, {{$row->nama}}?')">
                                 @csrf

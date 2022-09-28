@@ -12,10 +12,6 @@ Order
                                                 <div class="card-header-right">
                                                 </div>
                                             </div>
-                                            <div class="ml-3">
-                                                <a class="btn btn-info waves-effect waves-light" href="{{ route('order.create')}}" role="button"> Create (+)</a>
-                                                </p>
-                                                </div>
 
                                             <div class="card-block table-border-style">
                                                 <div class="table-responsive">
@@ -24,9 +20,9 @@ Order
                                                         <thead>
                                                             <tr>
                                                                 <th>Id</th>
-                                                                <th>Product Name</th>
-                                                                <th>Total</th>
+                                                                <th>Nama</th>
                                                                 <th>Price</th>
+                                                                <th>Total</th>
                                                                 <th>Edit</th>
                                                             </tr>
                                                         </thead>
@@ -35,10 +31,10 @@ Order
                                                             @foreach($order as $row)
                                                             <td>{{ $loop->iteration + ($order->perpage() *  ($order->currentPage() -1)) }}</td>
                         <td>{{ $row->barang->nama}}</td>
-                        <td>{{ $row->total }}</td>
-                        <td>{{ $row->harga}}</td>
+                        <td> @currency($row->barang->harga)</td>
+                        <td>{{ $row->harga }}</td>
                         <td>
-                            <form method="post" action="{{ route('order.destroy',[$row->idorder]) }}" onsubmit="return confirm('Are you sure to delete, {{$row->name}}?')">
+                            <form method="post" action="{{ route('order.destroy',[$row->idorder]) }}" onsubmit="return confirm('Are you sure to delete, {{$row->idorder}}?')">
                                 @csrf
                             {{ method_field('DELETE') }}
                             <button type="submit" href="{{ route('logout') }}" class="btn btn-outline-secondary btn-sm edit">

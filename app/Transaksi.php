@@ -12,9 +12,9 @@ class Transaksi extends Model
         'id','idorder','status','metode',
     ];
 
-    public function user()
+    public function barang()
     {
-        return $this->belongsTo('App\User','id');
+        return $this->belongsTo('App\Barang','id');
     }
     public function order()
     {

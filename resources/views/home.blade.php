@@ -1,3 +1,4 @@
+@if(Auth::user()->level == 'admin')
 @extends('layouts.template')
 
 @section('title')
@@ -25,3 +26,7 @@ Dashboard
     </div>
 </div>
 @endsection
+@endif
+@if(Auth::user()->level == 'pelanggan')
+@extends('welcome.index')
+@endif

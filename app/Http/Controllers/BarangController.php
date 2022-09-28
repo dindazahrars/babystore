@@ -44,6 +44,8 @@ class BarangController extends Controller
         if($validasi->fails())
         {
             return redirect()->route('barang.create')->withInput()->withErrors($validasi);
+            alert()->error('Error','Errors to add');
+
         }
         $foto = $request->file('foto');
         $extention = $foto->getClientOriginalExtension();
@@ -54,7 +56,7 @@ class BarangController extends Controller
              $data['foto'] = $namafoto;
 
         Barang::create($data);
-
+        alert()->success('success to add','success');
         return redirect()->route('barang.index');
             }
     }//end method
@@ -63,6 +65,7 @@ class BarangController extends Controller
     {
         $data = Barang::findOrFail($id);
         $data->delete();
+        alert()->info('Delete','data has been deleted');
         return redirect()->route('barang.index');
     }//end method
 
@@ -102,6 +105,7 @@ class BarangController extends Controller
         ]);
         if($validasi->fails())
         {
+            alert()->error('Error','Errors to edit');
             return redirect()->route('barang.edit',[$id])->withErrors($validasi);
         }
 
@@ -120,7 +124,7 @@ if($request->hasFile('foto')) {
     }
 
         $barang->update($data);
-        // alert()->success('Berhasil di edit','success');
+        alert()->success('Berhasil di edit','success');
         return redirect()->route('barang.index');
 
 

@@ -1,3 +1,4 @@
+@if(Auth::user()->level == 'pelanggan')
 <!DOCTYPE html>
 <html lang="en">
 
@@ -57,17 +58,18 @@ https://templatemo.com/tm-571-hexashop
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
+                            <li class="scroll-to-section"><a href="/welcome/index" class="active">Home</a></li>
                             <li class="scroll-to-section"><a href="/home">Dashboard</a></li>
+                            <li class="scroll-to-section"><a href="/order/create">Order</a></li>
 
 
                             <li class="submenu">
                                 <a href="javascript:;">Pages</a>
                                 <ul>
                                     <li><a href="/order/create">Order</a></li>
-                                    <li><a href="products.html">Products</a></li>
-                                    <li><a href="single-product.html">Single Product</a></li>
-                                    <li><a href="contact.html">Contact Us</a></li>
+                                    <li><a href="/welcome/product">Products</a></li>
+                                    <li><a href="/welcome/single-product">Single Product</a></li>
+                                    <li><a href="/welcome/contact.html">Contact Us</a></li>
                                 </ul>
                             </li>
                             <li class="submenu">
@@ -77,7 +79,17 @@ https://templatemo.com/tm-571-hexashop
                                     <li class="scroll-to-section"><a href="{{route('register')}}">Register</a></li>
                                 </ul>
                             </li>
-
+                            <li class="submenu">
+                                <a href="javascript:;"> @if (Auth::check())
+                                    <span>{{Auth::user()->name}}</span>
+                                    @endif</a>
+                                <ul>
+                                    <form action="{{route('logout')}}" method="post">
+                                        @csrf
+                                    <button type="submit" class="btn btn-danger">LogOut</button>
+                                </form>
+                                </ul>
+                            </li>
                         </ul>
 
                         <!-- ***** Menu End ***** -->
@@ -602,7 +614,7 @@ https://templatemo.com/tm-571-hexashop
                 <div class="col-lg-3">
                     <div class="first-item">
                         <div class="logo">
-                            <img src="{{asset('frontend/assets/images/logo.png')}}" alt="Baby Joy's Ecommerce">
+                            <img src="{{asset('frontend/assets/images/white-logo.png')}}" alt="hexashop ecommerce templatemo">
                         </div>
                         <ul>
                             <li><a href="#">16501 Collins Ave, Sunny Isles Beach, FL 33160, United States</a></li>
@@ -699,3 +711,4 @@ https://templatemo.com/tm-571-hexashop
 
   </body>
 </html>
+@endif

@@ -9,7 +9,7 @@ class Order extends Model
     protected $table = "order";
     protected $primarykey = "idorder";
     protected $fillable = [
-        'id','total','harga',
+        'id','harga',
     ];
 
     public function barang()

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 Use App\Transaksi;
 Use App\Order;
-Use App\User;
+Use App\Barang;
 use Validator;
 
 class TransaksiController extends Controller
@@ -17,20 +17,21 @@ class TransaksiController extends Controller
 
     public function index(Request $request)
     {
-        $transaksi = Transaksi::with('order','user')->latest()->paginate(3);
+        $transaksi = Transaksi::with('order','barang')->latest()->paginate(3);
         $filterKeyword = $request->get('keyword');
         if ($filterKeyword)
         {
             $transaksi = Transaksi::where('name','LIKE',"%$filterKeyword%")->paginate(1);
         }
+
         return view('transaksi.index', compact('transaksi'));
     }//end method
 
     public function create()
     {
         $order = Order::all();
-        $user = User::all();
-        return view('transaksi.create', compact('order','user'));
+        $barang = Barang::all();
+        return view('transaksi.create', compact('order','barang'));
     }//end method
 
     public function store(Request $request)

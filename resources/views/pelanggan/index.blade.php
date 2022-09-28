@@ -12,10 +12,6 @@ Pelanggan
                                                 <div class="card-header-right">
                                                 </div>
                                             </div>
-                                            <div class="ml-3">
-                                                <a class="btn btn-info waves-effect waves-light" href="{{ route('user.create')}}" role="button"> Create (+)</a>
-                                                </p>
-                                                </div>
 
                                             <div class="card-block table-border-style">
                                                 <div class="table-responsive">
@@ -24,7 +20,7 @@ Pelanggan
                                                         <thead>
                                                             <tr>
                                                                 <th>Id</th>
-                                                                <th>Name</th>
+                                                                <th>Nama </th>
                                                                 <th>Email</th>
                                                                 <th>Level</th>
                                                                 <th>Edit</th>

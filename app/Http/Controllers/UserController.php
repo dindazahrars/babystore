@@ -48,6 +48,7 @@ class UserController extends Controller
         ]);
         if($validasi->fails())
         {
+            alert()->error('Error','Errors to add');
             return redirect()->route('user.create')->withInput()->withErrors($validasi);
         }
 
@@ -61,6 +62,7 @@ class UserController extends Controller
     {
         $data = User::findOrFail($id);
         $data->delete();
+        alert()->info('Delete','data has been deleted');
         return redirect()->route('user.index');
     }//end method
 
@@ -97,6 +99,7 @@ class UserController extends Controller
         ]);
         if($validasi->fails())
         {
+            alert()->error('Error','Errors to edit');
             return redirect()->route('user.create',[$id])->withErrors($validasi);
         }
         if($request->input('password'))

@@ -21,7 +21,7 @@ class CreateTransaksiTable extends Migration
             $table->enum('metode',['cod','transferbank']);
             $table->timestamps();
 
-            $table->foreign('id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('id')->references('id')->on('barang')->onDelete('cascade');
             $table->foreign('idorder')->references('idorder')->on('order')->onDelete('cascade');
         });
     }

@@ -1,3 +1,4 @@
+@if(Auth::user()->level == 'admin')
 <!DOCTYPE html>
 <html lang="en">
 
@@ -216,3 +217,4 @@
 </body>
 
 </html>
+@endif

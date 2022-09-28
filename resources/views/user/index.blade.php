@@ -1,6 +1,6 @@
 @extends('layouts.template')
 @section('title')
-Admin & Pelanggan
+Admin
 @endsection
 
 <!-- ini untuk isi home -->
@@ -8,7 +8,7 @@ Admin & Pelanggan
 <div class="card">
 
                                             <div class="card-header">
-                                                <h5>Admin & Pelangan Table</h5>
+                                                <h5>Admin Table</h5>
                                                 <div class="card-header-right">
                                                 </div>
                                             </div>

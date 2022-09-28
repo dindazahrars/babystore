@@ -1,3 +1,4 @@
+@if(Auth::user()->level == 'admin')
 @extends('layouts.template')
 @section('title')
 Transaksi
@@ -12,9 +13,6 @@ Transaksi
                                                 <div class="card-header-right">
                                                 </div>
                                             </div>
-                                            <div class="ml-3">
-                                                <a class="btn btn-info waves-effect waves-light" href="{{route('transaksi.create')}}" role="button"> Create (+)</a>
-                                                </div>
 
                                             <div class="card-block table-btransaksi-style">
                                                 <div class="table-responsive">
@@ -23,8 +21,9 @@ Transaksi
                                                         <thead>
                                                             <tr>
                                                                 <th>Id</th>
-                                                                <th>Nama</th>
+                                                                <th>Nama Produk</th>
                                                                 <th>Harga</th>
+                                                                <th>Jumlah</th>
                                                                 <th>Status</th>
                                                                 <th>Metode</th>
 
@@ -35,10 +34,11 @@ Transaksi
                                                         <tbody>
                                                             @foreach($transaksi as $row)
                                                             <td>{{ $loop->iteration + ($transaksi->perpage() *  ($transaksi->currentPage() -1)) }}</td>
-                                                            <td>{{ optional($row->user)->name}}</td>
+                                                            <td>{{ optional($row->barang)->nama}}</td>
+                                                            <td>{{ optional($row->barang)->harga}}</td>
                                                             <td>{{ optional($row->order)->harga}}</td>
-                        <td>{{ $row->status }}</td>
-                        <td>{{ $row->metode}}</td>
+                                                            <td>{{ $row->status }}</td>
+                                                            <td>{{ $row->metode}}</td>
                         <td>
                     </tr>
                         </td>
@@ -51,3 +51,8 @@ Transaksi
                                             </div>
                                         </div>
 @endsection
+@endif
+@if(Auth::user()->level == 'pelanggan')
+@extends('welcome.index')
+@endif
+
